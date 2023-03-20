@@ -20,4 +20,18 @@
       <p>{{username}}</p>  
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-cs-12">
+      <h3>Details</h3>
+      <button
+        class="btn btn-secondary"
+        (click)="onDetailsToggled()">{{ detailsToggled ? "Hide details" : "Show details" }}</button>
+    </div>
+    <p *ngIf="detailsToggled">Secret pw: tuna</p>
+    <div
+      *ngFor="let ts of clickTimestamps; let i = index"
+      [ngStyle]="{backgroundColor: getBackgroundColor(i)}"
+      [ngClass]="{whiteFont: getFontColor(i)}">{{ ts }} - {{ i }}</div>
+  </div>
 </div>
