@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-controller
+        (increment)="onIncrement($event)"></app-game-controller>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div *ngFor="let nr of numbers">
+        <app-even
+          *ngIf="nr % 2 === 0; else odd"
+          [nr]="nr"></app-even>
+        <ng-template #odd>
+          <app-odd
+            [nr]="nr"></app-odd>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
